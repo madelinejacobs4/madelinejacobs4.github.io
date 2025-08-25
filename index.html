@@ -2,6 +2,50 @@
 <html>
 <head>
     <title>My Biography</title>
+    <style>
+        /* Basic styling for dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .dropbtn {
+            padding: 10px 20px;
+            background: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #f9f9f9;
+            min-width: 180px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background: #0077cc;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -9,13 +53,18 @@
 
     <h1>Hello, I'm Maddie Jacobs</h1>
 
-
     <p>I’m a student and an artist. I enjoy painting, collaging, and creating.</p>
 
-    <p>
-        <a href="portfolio/index.html" style="padding:10px 20px; background:#0077cc; color:white; text-decoration:none; border-radius:5px;">
-    
-        </a>
-    </p>
+    <!-- Dropdown navigation -->
+    <div class="dropdown">
+        <button class="dropbtn">Go to Portfolio</button>
+        <div class="dropdown-content">
+            <a href="portfolio/index.html">Full Portfolio</a>
+            <a href="portfolio/index.html#fliers">Fliers</a>
+            <a href="portfolio/index.html#soul-and-bones">Soul & Bones</a>
+            <a href="portfolio/index.html#multimedia">Multimedia Design</a>
+        </div>
+    </div>
+
 </body>
 </html>
