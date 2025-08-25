@@ -38,3 +38,9 @@ main {
   border-radius: 8px;
   object-fit: cover;
 }
+.flier-gallery img {
+  width: 20%;   /* smaller size */
+  max-width: 180px; /* keeps them from being too big on large screens */
+  border-radius: 8px;
+  object-fit: cover;
+}
