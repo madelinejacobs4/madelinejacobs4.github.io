@@ -4,60 +4,203 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fafafa;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .project {
+      position: relative;
+      background: #ddd;
+      aspect-ratio: 1/1;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .project:hover {
+      transform: scale(1.02);
+    }
+
+    .project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project:hover .project-name {
+      opacity: 1;
+    }
+
+    /* Modal styles */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      max-width: 700px;
+      border-radius: 12px;
+      text-align: left;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>My Portfolio</h1>
-    <p>Welcome to my portfolio!</p>
+    <p>Welcome to my portfolio! Hover to see project names, click to learn more.</p>
   </header>
 
-  <main>
-    <!-- Fliers Project -->
-    <section class="project">
-      <h2>Fliers</h2>
-      <div class="flier-gallery">
-        <img src="Baadsunday.JPG">
-      
-      </div>
-      <p>
-        Baad Sunday asked me to create fliers for their vintage market. 
-        I created them using Adobe Illustrator and Photoshop.
-      </p>
-    </section>
+  <!-- Project Grid -->
+  <div class="grid">
+    <div class="project" data-project="fliers">
+      <img src="Baadsunday.JPG" alt="Fliers">
+      <div class="project-name">Fliers</div>
+    </div>
+    <div class="project" data-project="soulbones">
+      <img src="S&B.jpg" alt="Soul and Bones">
+      <div class="project-name">Soul & Bones</div>
+    </div>
+    <div class="project" data-project="multimedia">
+      <img src="boyslie.jpg" alt="Multimedia">
+      <div class="project-name">Multimedia Design</div>
+    </div>
+  </div>
 
-    <!-- Soul & Bones Project -->
-    <section class="project">
-      <img src="S&B.jpg" alt="Soul and Bones project">
-      <h2>Soul and Bones Collaboration</h2>
-      <p>
-        For this project, I took a multimedia art piece I created as part of a collaborative jewelry 
-        business and transformed it into a line of custom phone cases. To keep the design authentic 
-        and connected to the brand, I incorporated her logo and colors inspired by her Instagram 
-        and website aesthetic. The goal was to bring the unique textures, colors, and details of the 
-        original art into something people can carry with them every day. Working closely with the 
-        artist, we made sure the phone cases stayed true to her brand’s style while also being 
-        durable. This project is about more than just selling phone cases, it’s about blending art 
-        and everyday life.
-      </p>
-    </section>
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modal-content">
+      <h2>Project Title</h2>
+      <p>Project description goes here.</p>
+      <button class="close-btn" id="close-btn">Close</button>
+    </div>
+  </div>
 
-    <!-- Multimedia Design -->
-    <section class="project">
-      <h2>Multimedia Design</h2>
-      <p>
-        My creative process includes both digital and physical techniques. First, I work primarily with 
-        Adobe Illustrator and Photoshop, using them to build the foundation of my designs. From there, 
-        I layer onto those digital concepts using acrylic paint, ink, and other traditional materials.
-      </p>
-      <div class="multimedia-gallery">
-        <img src="boyslie.jpg" alt="Boys Lie">
-        <img src="coastal living print.JPG" alt="Coastal Living">
-        <img src="bemyangel.jpeg" alt="Be My Angel">
-        <img src="happy hour.jpg" alt="Happy Hour">
-        <img src="star girl mockup.png" alt="Star Girl">
-      </div>
-    </section>
-  </main>
+  <script>
+    const projects = {
+      fliers: {
+        title: "Fliers",
+        desc: `
+          <p>Baad Sunday asked me to create fliers for their vintage market. 
+          I designed them using Adobe Illustrator and Photoshop.</p>
+          <img src="Baadsunday.JPG" alt="Flier Example">
+        `
+      },
+      soulbones: {
+        title: "Soul and Bones Collaboration",
+        desc: `
+          <p>For this project, I took a multimedia art piece I created as part of a collaborative jewelry 
+          business and transformed it into a line of custom phone cases. To keep the design authentic 
+          and connected to the brand, I incorporated her logo and colors inspired by her Instagram 
+          and website aesthetic.</p>
+          <p>The goal was to bring the unique textures, colors, and details of the 
+          original art into something people can carry with them every day.</p>
+          <img src="S&B.jpg" alt="Soul & Bones Case">
+        `
+      },
+      multimedia: {
+        title: "Multimedia Design",
+        desc: `
+          <p>My creative process includes both digital and physical techniques. First, I work primarily with 
+          Adobe Illustrator and Photoshop, using them to build the foundation of my designs. From there, 
+          I layer onto those digital concepts using acrylic paint, ink, and other traditional materials.</p>
+          <div>
+            <img src="boyslie.jpg" alt="Boys Lie">
+            <img src="coastal living print.JPG" alt="Coastal Living">
+            <img src="bemyangel.jpeg" alt="Be My Angel">
+            <img src="happy hour.jpg" alt="Happy Hour">
+            <img src="star girl mockup.png" alt="Star Girl">
+          </div>
+        `
+      }
+    };
+
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modal-content");
+    const closeBtn = document.getElementById("close-btn");
+
+    document.querySelectorAll(".project").forEach(proj => {
+      proj.addEventListener("click", () => {
+        const id = proj.dataset.project;
+        modalContent.innerHTML = `
+          <h2>${projects[id].title}</h2>
+          ${projects[id].desc}
+          <button class="close-btn" id="close-btn">Close</button>
+        `;
+        modal.classList.add("active");
+        document.getElementById("close-btn").addEventListener("click", () => {
+          modal.classList.remove("active");
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
