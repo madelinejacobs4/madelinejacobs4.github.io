@@ -12,16 +12,24 @@
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      background: #f5f7fa;
       color: #333;
+      background: url('portfolio.jpeg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.75);
+      z-index: -1;
     }
 
     header {
       text-align: center;
       padding: 3rem 1rem;
-      background: linear-gradient(135deg, #0077cc, #00a3e0);
-      color: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      color: #0077cc;
     }
 
     header h1 {
@@ -34,6 +42,7 @@
       margin-top: 10px;
       font-weight: 300;
       font-size: 1.1rem;
+      color: #444;
     }
 
     .grid {
@@ -47,12 +56,12 @@
 
     .project {
       position: relative;
-      background: #ddd;
+      background: #fff;
       aspect-ratio: 1/1;
       border-radius: 15px;
       overflow: hidden;
       cursor: pointer;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
@@ -233,32 +242,4 @@
           I layer onto those digital concepts using acrylic paint, ink, and other traditional materials.</p>
           <div>
             <img src="boyslie.jpg" alt="Boys Lie">
-            <img src="coastal living print.JPG" alt="Coastal Living">
-            <img src="bemyangel.jpeg" alt="Be My Angel">
-            <img src="happy hour.jpg" alt="Happy Hour">
-            <img src="star girl mockup.png" alt="Star Girl">
-          </div>
-        `
-      }
-    };
-
-    const modal = document.getElementById("modal");
-    const modalContent = document.getElementById("modal-content");
-
-    document.querySelectorAll(".project").forEach(proj => {
-      proj.addEventListener("click", () => {
-        const id = proj.dataset.project;
-        modalContent.innerHTML = `
-          <h2>${projects[id].title}</h2>
-          ${projects[id].desc}
-          <button class="close-btn" id="close-btn">Close</button>
-        `;
-        modal.classList.add("active");
-        document.getElementById("close-btn").addEventListener("click", () => {
-          modal.classList.remove("active");
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+            <img src
