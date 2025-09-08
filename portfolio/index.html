@@ -1,3 +1,46 @@
+<nav>
+  <a href="about.html">About</a>
+  <a href="index.html" class="active">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 40px;
+    background: rgba(139, 0, 0, 0.85); /* dark red overlay */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    margin-right: 30px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  nav a.active {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      justify-content: space-around;
+      padding: 15px 20px;
+    }
+  }
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
