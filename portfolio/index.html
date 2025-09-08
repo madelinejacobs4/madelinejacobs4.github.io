@@ -1,245 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maddie Jacobs – Portfolio</title>
-  
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+.project {
+  position: relative;
+  background: #fff;
+  aspect-ratio: 1/1;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      color: #333;
-      background: url('portfolio.jpeg') no-repeat center center fixed;
-      background-size: cover;
-    }
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+}
 
-    /* Overlay for readability */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.75);
-      z-index: -1;
-    }
+.project img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s, filter 0.4s;
+}
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: #0077cc;
-    }
+.project:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.6) sepia(1) hue-rotate(-10deg) saturate(6);
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-weight: 700;
-    }
+/* Full overlay with centered title */
+.project-name {
+  position: absolute;
+  inset: 0; /* fills the square */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(220, 20, 60, 0.8); /* dog red overlay */
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
 
-    header p {
-      margin-top: 10px;
-      font-weight: 300;
-      font-size: 1.1rem;
-      color: #444;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .project {
-      position: relative;
-      background: #fff;
-      aspect-ratio: 1/1;
-      border-radius: 15px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 18px rgba(0,0,0,0.2);
-    }
-
-    .project img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s;
-    }
-
-    .project:hover img {
-      transform: scale(1.05);
-    }
-
-    .project-name {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0,0,0,0.65);
-      color: #fff;
-      text-align: center;
-      padding: 12px;
-      opacity: 0;
-      transition: opacity 0.4s;
-      font-weight: 500;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
-    }
-
-    .project:hover .project-name {
-      opacity: 1;
-    }
-
-    /* Modal styles */
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease-in-out;
-      z-index: 1000;
-    }
-
-    .modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-content {
-      background: #fff;
-      padding: 30px;
-      max-width: 750px;
-      border-radius: 14px;
-      text-align: left;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      animation: fadeInUp 0.35s ease;
-    }
-
-    .modal-content h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
-      color: #0077cc;
-    }
-
-    .modal-content p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    .modal-content img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .close-btn {
-      margin-top: 10px;
-      background: #0077cc;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-
-    .close-btn:hover {
-      background: #005fa3;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>My Portfolio</h1>
-    <p>Hover over a project to see its name. Click to learn more.</p>
-  </header>
-
-  <!-- Project Grid -->
-  <div class="grid">
-    <div class="project" data-project="fliers">
-      <img src="Baadsunday.JPG" alt="Fliers">
-      <div class="project-name">Fliers</div>
-    </div>
-    <div class="project" data-project="soulbones">
-      <img src="S&B.jpg" alt="Soul and Bones">
-      <div class="project-name">Soul & Bones</div>
-    </div>
-    <div class="project" data-project="multimedia">
-      <img src="boyslie.jpg" alt="Multimedia">
-      <div class="project-name">Multimedia Design</div>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal" id="modal">
-    <div class="modal-content" id="modal-content">
-      <h2>Project Title</h2>
-      <p>Project description goes here.</p>
-      <button class="close-btn" id="close-btn">Close</button>
-    </div>
-  </div>
-
-  <script>
-    const projects = {
-      fliers: {
-        title: "Fliers",
-        desc: `
-          <p>Baad Sunday asked me to create fliers for their vintage market. 
-          I designed them using Adobe Illustrator and Photoshop.</p>
-          <img src="Baadsunday.JPG" alt="Flier Example">
-        `
-      },
-      soulbones: {
-        title: "Soul and Bones Collaboration",
-        desc: `
-          <p>For this project, I took a multimedia art piece I created as part of a collaborative jewelry 
-          business and transformed it into a line of custom phone cases. To keep the design authentic 
-          and connected to the brand, I incorporated her logo and colors inspired by her Instagram 
-          and website aesthetic.</p>
-          <p>The goal was to bring the unique textures, colors, and details of the 
-          original art into something people can carry with them every day.</p>
-          <img src="S&B.jpg" alt="Soul & Bones Case">
-        `
-      },
-      multimedia: {
-        title: "Multimedia Design",
-        desc: `
-          <p>My creative process includes both digital and physical techniques. First, I work primarily with 
-          Adobe Illustrator and Photoshop, using them to build the foundation of my designs. From there, 
-          I layer onto those digital concepts using acrylic paint, ink, and other traditional materials.</p>
-          <div>
-            <img src="boyslie.jpg" alt="Boys Lie">
-            <img src
+.project:hover .project-name {
+  opacity: 1;
+}
