@@ -1,70 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Biography</title>
-    <style>
-        /* Basic styling for dropdown */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-top: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maddie Jacobs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #fafafa;
+      color: #333;
+    }
 
-        .dropbtn {
-            padding: 10px 20px;
-            background: #0077cc;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: #0077cc;
+      color: white;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: #f9f9f9;
-            min-width: 180px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-radius: 5px;
-            z-index: 1;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
 
-        .dropdown-content a {
-            color: #333;
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-        }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-        .dropdown-content a:hover {
-            background: #0077cc;
-            color: white;
-        }
+    section {
+      margin-bottom: 60px;
+    }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #0077cc;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .portfolio-link {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 60px;
+      padding: 12px 24px;
+      background: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+      text-align: center;
+    }
+
+    .portfolio-link:hover {
+      background: #005fa3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #666;
+      background: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
 
-    <img src="ostrich.jpg" alt="Maddie Jacobs" style="width:200px;">
+  <header>
+    <h1>Maddie Jacobs</h1>
+  </header>
 
-    <h1>Hello, I'm Maddie Jacobs</h1>
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m a student and artist who enjoys painting, collaging, and creating multimedia designs. 
+        My work often blends digital and traditional mediums, exploring how texture, color, and form 
+        can connect to everyday life.
+      </p>
+    </section>
 
-    <p>I’m a student and an artist. I enjoy painting, collaging, and creating.</p>
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        You can reach me via email at 
+        <a href="mailto:yourname@email.com">yourname@email.com</a>
+      </p>
+    </section>
 
-    <!-- Dropdown navigation -->
-    <div class="dropdown">
-        <button class="dropbtn">Go to Portfolio</button>
-        <div class="dropdown-content">
-            <a href="portfolio/index.html">Full Portfolio</a>
-            <a href="portfolio/index.html#fliers">Fliers</a>
-            <a href="portfolio/index.html#soul-and-bones">Soul & Bones</a>
-            <a href="portfolio/index.html#multimedia">Multimedia Design</a>
-        </div>
-    </div>
+    <!-- Portfolio Link -->
+    <a class="portfolio-link" href="portfolio/index.html">Go to Portfolio</a>
+  </main>
+
+  <footer>
+    <p>© 2025 Maddie Jacobs</p>
+  </footer>
 
 </body>
 </html>
