@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maddie Jacobs – Projects</title>
-  
+
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: url('../portfolio.jpeg') center/cover no-repeat fixed;
       color: #333;
-      background: url('../portfolio.jpeg') no-repeat center center fixed;
-      background-size: cover;
       position: relative;
     }
 
@@ -21,7 +23,7 @@
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.75);
+      background: rgba(0,0,0,0.5);
       z-index: 0;
     }
 
@@ -51,7 +53,7 @@
     }
 
     nav a.active {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255,255,255,0.3);
     }
 
     .grid {
@@ -109,80 +111,7 @@
       transition: opacity 0.4s;
     }
 
-    .project:hover .project-name {
-      opacity: 1;
-    }
-
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease-in-out;
-      z-index: 1000;
-    }
-
-    .modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-content {
-      background: #fff;
-      padding: 30px;
-      max-width: 750px;
-      border-radius: 14px;
-      text-align: left;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      animation: fadeInUp 0.35s ease;
-    }
-
-    .modal-content h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
-      color: #0077cc;
-    }
-
-    .modal-content p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    .modal-content img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .close-btn {
-      margin-top: 10px;
-      background: #0077cc;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-
-    .close-btn:hover {
-      background: #005fa3;
-    }
-
-    @keyframes fadeInUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+    .project:hover .project-name { opacity: 1; }
 
     @media (max-width: 768px) {
       nav { justify-content: space-around; padding: 15px 20px; }
@@ -212,14 +141,6 @@
     </div>
   </div>
 
-  <div class="modal" id="modal">
-    <div class="modal-content" id="modal-content">
-      <h2>Project Title</h2>
-      <p>Project description goes here.</p>
-      <button class="close-btn" id="close-btn">Close</button>
-    </div>
-  </div>
-
   <script>
     // Highlight current nav link dynamically
     const links = document.querySelectorAll('.nav-link');
@@ -228,7 +149,6 @@
         link.classList.add('active');
       }
     });
-
-    const projects = {
-      fliers: { title: "Fliers", desc: `<p>Baad Sunday asked me to create fliers for their vintage market. I designed them using Adobe Illustrator and Photoshop.</p><img src="Baadsunday.JPG" alt="Flier Example">` },
-      soulbones: { title: "Soul & Bones", desc
+  </script>
+</body>
+</html>
