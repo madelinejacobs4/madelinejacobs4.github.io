@@ -15,6 +15,7 @@
       color: #333;
       background: url('portfolio.jpeg') no-repeat center center fixed;
       background-size: cover;
+      position: relative;
     }
 
     /* Overlay for readability */
@@ -23,16 +24,49 @@
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(255, 255, 255, 0.75);
-      z-index: -1;
+      z-index: 0;
     }
 
+    /* Top navigation - red bar style */
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      padding: 20px 40px;
+      background: rgba(139, 0, 0, 0.85); /* dark red overlay */
+      position: fixed;
+      width: 100%;
+      z-index: 1;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      margin-right: 30px;
+      padding: 10px 15px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    nav a.active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Project Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
-      padding: 40px 20px;
+      padding: 140px 20px 40px; /* add top padding for fixed nav */
       max-width: 1200px;
       margin: auto;
+      position: relative;
+      z-index: 1;
     }
 
     /* Project Card */
@@ -68,11 +102,11 @@
     /* Full overlay with title */
     .project-name {
       position: absolute;
-      inset: 0; /* fills the square */
+      inset: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: rgba(220, 20, 60, 0.8); /* Dog red overlay */
+      background: rgba(220, 20, 60, 0.8);
       color: #fff;
       font-size: 1.5rem;
       font-weight: 600;
@@ -162,9 +196,26 @@
         opacity: 1;
       }
     }
+
+    @media (max-width: 768px) {
+      nav {
+        justify-content: space-around;
+        padding: 15px 20px;
+      }
+      .grid {
+        padding: 160px 10px 20px;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="../about.html">About</a>
+    <a href="#" class="active">Projects</a>
+    <!-- Contact link removed -->
+  </nav>
 
   <!-- Project Grid -->
   <div class="grid">
@@ -250,3 +301,4 @@
   </script>
 </body>
 </html>
+
