@@ -18,7 +18,6 @@
       position: relative;
     }
 
-    /* Overlay for readability */
     body::before {
       content: "";
       position: fixed;
@@ -27,12 +26,12 @@
       z-index: 0;
     }
 
-    /* Top navigation - red bar style */
+    /* Navigation - consistent with About page */
     nav {
       display: flex;
       justify-content: flex-start;
       padding: 20px 40px;
-      background: rgba(139, 0, 0, 0.85); /* dark red overlay */
+      background: rgba(139, 0, 0, 0.85);
       position: fixed;
       width: 100%;
       z-index: 1;
@@ -50,26 +49,24 @@
     }
 
     nav a:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(139, 0, 0, 0.85); /* dark red hover */
     }
 
     nav a.active {
       background: rgba(255, 255, 255, 0.3);
     }
 
-    /* Project Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
-      padding: 140px 20px 40px; /* add top padding for fixed nav */
+      padding: 140px 20px 40px;
       max-width: 1200px;
       margin: auto;
       position: relative;
       z-index: 1;
     }
 
-    /* Project Card */
     .project {
       position: relative;
       background: #fff;
@@ -96,10 +93,9 @@
 
     .project:hover img {
       transform: scale(1.05);
-      filter: brightness(0.6) sepia(1) hue-rotate(-10deg) saturate(6); /* Dog red tint */
+      filter: brightness(0.6) sepia(1) hue-rotate(-10deg) saturate(6);
     }
 
-    /* Full overlay with title */
     .project-name {
       position: absolute;
       inset: 0;
@@ -119,7 +115,6 @@
       opacity: 1;
     }
 
-    /* Modal styles */
     .modal {
       position: fixed;
       top: 0; left: 0;
@@ -187,44 +182,30 @@
     }
 
     @keyframes fadeInUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     @media (max-width: 768px) {
-      nav {
-        justify-content: space-around;
-        padding: 15px 20px;
-      }
-      .grid {
-        padding: 160px 10px 20px;
-      }
+      nav { justify-content: space-around; padding: 15px 20px; }
+      .grid { padding: 160px 10px 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
   <nav>
     <a href="../about.html">About</a>
     <a href="#" class="active">Projects</a>
-    <!-- Contact link removed -->
   </nav>
 
-  <!-- Project Grid -->
   <div class="grid">
     <div class="project" data-project="fliers">
       <img src="Baadsunday.JPG" alt="Fliers">
       <div class="project-name">Fliers</div>
     </div>
     <div class="project" data-project="soulbones">
-      <img src="S&B.jpg" alt="Soul and Bones">
+      <img src="S&B.jpg" alt="Soul & Bones">
       <div class="project-name">Soul & Bones</div>
     </div>
     <div class="project" data-project="multimedia">
@@ -233,7 +214,6 @@
     </div>
   </div>
 
-  <!-- Modal -->
   <div class="modal" id="modal">
     <div class="modal-content" id="modal-content">
       <h2>Project Title</h2>
@@ -246,38 +226,26 @@
     const projects = {
       fliers: {
         title: "Fliers",
-        desc: `
-          <p>Baad Sunday asked me to create fliers for their vintage market. 
-          I designed them using Adobe Illustrator and Photoshop.</p>
-          <img src="Baadsunday.JPG" alt="Flier Example">
-        `
+        desc: `<p>Baad Sunday asked me to create fliers for their vintage market. 
+        I designed them using Adobe Illustrator and Photoshop.</p>
+        <img src="Baadsunday.JPG" alt="Flier Example">`
       },
       soulbones: {
         title: "Soul and Bones Collaboration",
-        desc: `
-          <p>For this project, I took a multimedia art piece I created as part of a collaborative jewelry 
-          business and transformed it into a line of custom phone cases. To keep the design authentic 
-          and connected to the brand, I incorporated her logo and colors inspired by her Instagram 
-          and website aesthetic.</p>
-          <p>The goal was to bring the unique textures, colors, and details of the 
-          original art into something people can carry with them every day.</p>
-          <img src="S&B.jpg" alt="Soul & Bones Case">
-        `
+        desc: `<p>For this project, I took a multimedia art piece I created as part of a collaborative jewelry 
+        business and transformed it into a line of custom phone cases...</p>
+        <img src="S&B.jpg" alt="Soul & Bones Case">`
       },
       multimedia: {
         title: "Multimedia Design",
-        desc: `
-          <p>My creative process includes both digital and physical techniques. First, I work primarily with 
-          Adobe Illustrator and Photoshop, using them to build the foundation of my designs. From there, 
-          I layer onto those digital concepts using acrylic paint, ink, and other traditional materials.</p>
-          <div>
-            <img src="boyslie.jpg" alt="Boys Lie">
-            <img src="coastal living print.JPG" alt="Coastal Living">
-            <img src="bemyangel.jpeg" alt="Be My Angel">
-            <img src="happy hour.jpg" alt="Happy Hour">
-            <img src="star girl mockup.png" alt="Star Girl">
-          </div>
-        `
+        desc: `<p>My creative process includes both digital and physical techniques...</p>
+        <div>
+          <img src="boyslie.jpg" alt="Boys Lie">
+          <img src="coastal living print.JPG" alt="Coastal Living">
+          <img src="bemyangel.jpeg" alt="Be My Angel">
+          <img src="happy hour.jpg" alt="Happy Hour">
+          <img src="star girl mockup.png" alt="Star Girl">
+        </div>`
       }
     };
 
@@ -299,5 +267,6 @@
       });
     });
   </script>
+
 </body>
 </html>
