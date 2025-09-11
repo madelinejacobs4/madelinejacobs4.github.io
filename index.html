@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About – Maddie Jacobs</title>
 
-  <!-- Google Font: Roboto Condensed -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -53,7 +53,7 @@
     }
 
     nav a.active {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255,255,255,0.3);
     }
 
     main {
@@ -72,37 +72,14 @@
       text-transform: uppercase;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      color: #ffffff; 
-      margin-bottom: 15px;
-    }
+    h2 { color: #fff; font-size: 1.8rem; margin-bottom: 15px; }
+    p { color: #f5f5f5; font-size: 1rem; line-height: 1.6; }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #f5f5f5;
-    }
+    #contact p, #contact a.email-link { color: #fff; }
+    a.email-link { text-decoration: none; }
+    a.email-link:hover { text-decoration: underline; }
 
-    #contact p,
-    #contact a.email-link {
-      color: #ffffff;
-    }
-
-    a.email-link {
-      text-decoration: none;
-    }
-
-    a.email-link:hover {
-      text-decoration: underline;
-    }
-
-    .about-image {
-      margin-top: 30px;
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    }
+    .about-image { margin-top: 30px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); }
 
     @media (max-width: 768px) {
       nav { justify-content: space-around; padding: 15px 20px; }
@@ -122,31 +99,16 @@
 
     <section id="about">
       <h2>About Me</h2>
-      <p>
-        I’m a student and artist who enjoys painting, collaging, and creating multimedia designs. 
-        My work often blends digital and traditional mediums, exploring how texture, color, and form 
-        can connect to everyday life.
-      </p>
+      <p>I’m a student and artist who enjoys painting, collaging, and creating multimedia designs. My work often blends digital and traditional mediums, exploring how texture, color, and form can connect to everyday life.</p>
       <img src="paint.HEIC" alt="Painting" class="about-image">
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>
-        You can reach me via email at 
-        <a class="email-link" href="mailto:Maddiejacobs37@icloud.com">Maddiejacobs37@icloud.com</a>
-      </p>
+      <p>You can reach me via email at <a class="email-link" href="mailto:Maddiejacobs37@icloud.com">Maddiejacobs37@icloud.com</a></p>
     </section>
   </main>
 
   <script>
-    // Highlight current nav link
     const links = document.querySelectorAll('.nav-link');
-    links.forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
-      }
-    });
-  </script>
-</body>
-</html>
+    links.forEach(link => { if (link.href === window.location.
