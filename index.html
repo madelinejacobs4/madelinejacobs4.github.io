@@ -19,7 +19,6 @@
       position: relative;
     }
 
-    /* Overlay so text is readable */
     body::before {
       content: "";
       position: fixed;
@@ -28,7 +27,6 @@
       z-index: 0;
     }
 
-    /* Top navigation - consistent red bar */
     nav {
       display: flex;
       justify-content: flex-start;
@@ -51,7 +49,7 @@
     }
 
     nav a:hover {
-      background: rgba(139, 0, 0, 0.85); /* dark red hover same as nav */
+      background: rgba(139, 0, 0, 0.85);
     }
 
     nav a.active {
@@ -107,21 +105,16 @@
     }
 
     @media (max-width: 768px) {
-      nav {
-        justify-content: space-around;
-        padding: 15px 20px;
-      }
-      main {
-        padding: 100px 20px 40px;
-      }
+      nav { justify-content: space-around; padding: 15px 20px; }
+      main { padding: 100px 20px 40px; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#about" class="active">About</a>
-    <a href="portfolio/index.html">Projects</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="portfolio/index.html" class="nav-link">Projects</a>
   </nav>
 
   <main>
@@ -146,5 +139,14 @@
     </section>
   </main>
 
+  <script>
+    // Highlight current nav link
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>
