@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maddie Jacobs – Projects</title>
   
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -13,7 +12,7 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       color: #333;
-      background: url('portfolio.jpeg') no-repeat center center fixed;
+      background: url('../portfolio.jpeg') no-repeat center center fixed;
       background-size: cover;
       position: relative;
     }
@@ -26,7 +25,6 @@
       z-index: 0;
     }
 
-    /* Navigation - consistent with About page */
     nav {
       display: flex;
       justify-content: flex-start;
@@ -49,7 +47,7 @@
     }
 
     nav a:hover {
-      background: rgba(139, 0, 0, 0.85); /* dark red hover */
+      background: rgba(139, 0, 0, 0.85);
     }
 
     nav a.active {
@@ -102,7 +100,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: rgba(220, 20, 60, 0.8);
+      background: rgba(139, 0, 0, 0.85);
       color: #fff;
       font-size: 1.5rem;
       font-weight: 600;
@@ -195,8 +193,8 @@
 <body>
 
   <nav>
-    <a href="../about.html">About</a>
-    <a href="#" class="active">Projects</a>
+    <a href="../about.html" class="nav-link">About</a>
+    <a href="index.html" class="nav-link">Projects</a>
   </nav>
 
   <div class="grid">
@@ -223,50 +221,14 @@
   </div>
 
   <script>
-    const projects = {
-      fliers: {
-        title: "Fliers",
-        desc: `<p>Baad Sunday asked me to create fliers for their vintage market. 
-        I designed them using Adobe Illustrator and Photoshop.</p>
-        <img src="Baadsunday.JPG" alt="Flier Example">`
-      },
-      soulbones: {
-        title: "Soul and Bones Collaboration",
-        desc: `<p>For this project, I took a multimedia art piece I created as part of a collaborative jewelry 
-        business and transformed it into a line of custom phone cases...</p>
-        <img src="S&B.jpg" alt="Soul & Bones Case">`
-      },
-      multimedia: {
-        title: "Multimedia Design",
-        desc: `<p>My creative process includes both digital and physical techniques...</p>
-        <div>
-          <img src="boyslie.jpg" alt="Boys Lie">
-          <img src="coastal living print.JPG" alt="Coastal Living">
-          <img src="bemyangel.jpeg" alt="Be My Angel">
-          <img src="happy hour.jpg" alt="Happy Hour">
-          <img src="star girl mockup.png" alt="Star Girl">
-        </div>`
+    // Highlight current nav link dynamically
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
       }
-    };
-
-    const modal = document.getElementById("modal");
-    const modalContent = document.getElementById("modal-content");
-
-    document.querySelectorAll(".project").forEach(proj => {
-      proj.addEventListener("click", () => {
-        const id = proj.dataset.project;
-        modalContent.innerHTML = `
-          <h2>${projects[id].title}</h2>
-          ${projects[id].desc}
-          <button class="close-btn" id="close-btn">Close</button>
-        `;
-        modal.classList.add("active");
-        document.getElementById("close-btn").addEventListener("click", () => {
-          modal.classList.remove("active");
-        });
-      });
     });
-  </script>
 
-</body>
-</html>
+    const projects = {
+      fliers: { title: "Fliers", desc: `<p>Baad Sunday asked me to create fliers for their vintage market. I designed them using Adobe Illustrator and Photoshop.</p><img src="Baadsunday.JPG" alt="Flier Example">` },
+      soulbones: { title: "Soul & Bones", desc
